@@ -9,7 +9,7 @@ const apiUrl = 'https://myflix-kp.herokuapp.com/';
 //get token from localStorage
 const token = localStorage.getItem('token');
 //get username from localStorage
-const username = localStorage.getItem('username');
+const username = localStorage.getItem('Username');
 @Injectable({
   providedIn: 'root'
 })
