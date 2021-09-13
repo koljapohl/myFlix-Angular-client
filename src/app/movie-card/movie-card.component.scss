@@ -1,6 +1,7 @@
 @import '../../styles.scss';
 
 .main {
+  margin: $container-spacing+64px $container-spacing $container-spacing $container-spacing;
   display: grid;
   grid-auto-flow: row;
   align-content: center;

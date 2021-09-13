@@ -1,0 +1,13 @@
+@import '../../styles.scss';
+
+.nav-bar {
+  position: fixed;
+  margin-bottom: $container-spacing;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+
+  .nav-item {
+    font-size: $font-header;
+  }
+}
