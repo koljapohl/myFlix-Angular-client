@@ -1,0 +1,39 @@
+@import '../../styles.scss';
+
+.main-page {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+
+  .login {
+    border-radius: 10px;
+    padding: 20px;
+    display: grid;
+    grid-template-areas: "welcome welcome"
+                         "signIn  login"
+                         "test    test";
+    column-gap: 1vw;
+    max-width: 20vw;
+    h1 {
+      grid-area: welcome;
+      font-size: $font-header;
+      margin-bottom: 2vh;
+    }
+    button {
+      font-size: $font-subheader;
+    }
+    .btn_sign-in {
+      grid-area: signIn;
+    }
+    .btn_login {
+      grid-area: login;
+    }
+    .test-user {
+      grid-area: test;
+      font-size: $font-subheader;
+      margin: 2vh auto 0 auto;
+    }
+  }
+}

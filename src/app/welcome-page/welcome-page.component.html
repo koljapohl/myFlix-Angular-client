@@ -1,11 +1,12 @@
 <div class="main-page">
+  <div class="login">
   <h1>
     Welcome to myFlix!
   </h1>
   <button
   mat-raised-button
   (click)="openUserRegistrationDialog()"
-  style="margin-right: 10px;"
+  class="btn_sign-up"
   color="primary"
   >
   Sign Up
@@ -13,9 +14,15 @@
   <button
   mat-raised-button
   (click)="openLoginDialog()"
-  style="margin-right: 10px;"
+  class="btn_login"
   color="primary"
   >
   Login
   </button>
+  <div class="test-user">
+    <p>
+      Want to test? Hit Login to do so
+    </p>
+  </div>
+</div>
   </div>
