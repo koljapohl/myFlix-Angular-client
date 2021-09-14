@@ -1,0 +1,101 @@
+@import '../../styles.scss';
+
+.container {
+  margin: 0 $container-spacing;
+
+  .main {
+    margin: $container-spacing+64px auto $container-spacing auto;
+    display: grid;
+    grid-auto-flow: row;
+    align-content: center;
+    justify-items: center;
+    max-width: 1400px;
+
+    .credentials {
+      background-color: #fff;
+      padding: $container-spacing;
+      border-radius: 10px;
+      font-size: $font-main;
+      display: grid;
+      grid-auto-flow: row;
+
+      .credential-row {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        &:not(:last-of-type) {
+          margin-bottom: 2rem;
+        }
+
+        .key {
+          margin-right: $container-spacing;
+        }
+      }
+
+      .actions {
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 2vw;
+      }
+    }
+  .fav-header {
+    font-size: $font-header + 20px;
+    color: $primary-color;
+    font-weight: 900;
+    margin: $container-spacing 0;
+  }
+
+  .fav-container {
+    display: grid;
+    grid-auto-flow: row;
+    align-content: center;
+    justify-items: center;
+    gap: 3vw;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    max-width: 1400px;
+
+  .movie-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 4vw;
+
+    ::ng-deep .mat-card-header-text {
+      margin: 0;
+    }
+    .subtitle, .title {
+      white-space: nowrap;
+      color: $main-font-color;
+    }
+    .title {
+      font-size: $font-header;
+    }
+    .subtitle {
+      font-size: $font-subheader;
+    }
+    img {
+      height: 350px;
+      width: 250px;
+      object-fit: cover;
+      margin: 0 auto;
+    }
+    .mat-card-actions{
+      display: grid;
+      grid-auto-flow: row;
+      grid-template-columns: 1fr;
+      align-items: center;
+      .warning {
+        color: red;
+        &:hover {
+          color: #fff;
+          background-color: red;
+        }
+      }
+    }
+    button {
+      color: $main-font-color;
+      font-size: $font-subheader;
+    }
+  }
+}
+  }
+}
