@@ -26,6 +26,7 @@ import { SynopsisComponent } from './synopsis/synopsis.component';
 import { GenreComponent } from './genre/genre.component';
 import { DirectorComponent } from './director/director.component';
 import { ProfileDeleteComponent } from './profile-delete/profile-delete.component';
+import { ProfileCredentialsComponent } from './profile-credentials/profile-credentials.component';
 
 
 const appRoutes: Routes = [
@@ -47,7 +48,8 @@ const appRoutes: Routes = [
     SynopsisComponent,
     GenreComponent,
     DirectorComponent,
-    ProfileDeleteComponent
+    ProfileDeleteComponent,
+    ProfileCredentialsComponent
   ],
   imports: [
     BrowserModule,
