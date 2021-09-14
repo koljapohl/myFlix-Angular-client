@@ -1,0 +1,11 @@
+@import '../../styles.scss';
+
+.container {
+  margin: 0 $container-spacing;
+}
+
+.actions {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 2vw;
+}

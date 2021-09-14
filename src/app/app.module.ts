@@ -25,6 +25,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SynopsisComponent } from './synopsis/synopsis.component';
 import { GenreComponent } from './genre/genre.component';
 import { DirectorComponent } from './director/director.component';
+import { ProfileDeleteComponent } from './profile-delete/profile-delete.component';
 
 
 const appRoutes: Routes = [
@@ -45,7 +46,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     SynopsisComponent,
     GenreComponent,
-    DirectorComponent
+    DirectorComponent,
+    ProfileDeleteComponent
   ],
   imports: [
     BrowserModule,

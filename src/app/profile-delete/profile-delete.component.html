@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>
+    Are you sure you want to delete your account?
+  </h1>
+  <h3>
+    This cannot be undone!
+  </h3>
+  <div class="actions">
+    <button
+    mat-raised-button
+    color="warn"
+    (click)="deleteAccount()"
+    >
+    DELETE
+  </button>
+  <button
+  mat-raised-button
+  mat-dialog-close
+  color="accent"
+  >
+  Cancel
+  </button>
+  </div>
+</div>
