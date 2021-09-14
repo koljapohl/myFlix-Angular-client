@@ -12,6 +12,7 @@
     <button
     mat-button
     class="button-action"
+    (click)="openSynopsis(movie.Description)"
     >
     Synopsis
     </button>
@@ -27,7 +28,12 @@
     >
     Director
     </button>
+    <button
+    mat-button
+    class="button-action"
+    >
     <mat-icon aria-hidden="true" color="#79B52B">favorite_border</mat-icon>
+    </button>
   </mat-card-actions>
 </mat-card-content>
   </mat-card>

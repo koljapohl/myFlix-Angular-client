@@ -1,0 +1,16 @@
+@import '../../styles.scss';
+
+::ng-deep app-synopsis {
+  display: grid;
+}
+
+.dialog-close {
+  background-color: unset;
+  border: none;
+  padding: 0;
+  justify-self: end;
+
+  mat-icon {
+  cursor:pointer;
+  }
+}
