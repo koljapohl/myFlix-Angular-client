@@ -31,12 +31,12 @@ export class LoginFormComponent implements OnInit {
       localStorage.setItem('Username', this.userData.Username);
       localStorage.setItem('token', result.token);
       localStorage.setItem('user', JSON.stringify(result.user));
-      this.snackBar.open(`Welcome back ${this.userData.Username}!`, 'Thanks!', { duration: 3000 });
+      this.snackBar.open(`Welcome back ${this.userData.Username}`, undefined,  { duration: 3000 });
+      this.router.navigate(['movies']);
     }, (result) => {
       console.log(result);
-      this.snackBar.open(result, 'Got it!', { duration: 3000 });
+      this.snackBar.open(`This combination of Username and Password does not exist. Please try again or sign up.`, 'Got it!', { duration: 3000 });
     });
-    this.router.navigate(['movies']);
   }
 
 }
