@@ -30,12 +30,23 @@
     >
     Director
     </button>
+    <div *ngIf="isFav(movie._id); then favMovie else noFavMovie"></div>
+    <ng-template #favMovie>
+      <button
+      mat-button
+      class="button-action"
+      >
+        <mat-icon class="icon_isFav" aria-hidden="true" color="#79B52B">favorite</mat-icon>
+      </button>
+    </ng-template>
+    <ng-template #noFavMovie>
     <button
     mat-button
     class="button-action"
     >
     <mat-icon aria-hidden="true" color="#79B52B">favorite_border</mat-icon>
     </button>
+  </ng-template>
   </mat-card-actions>
 </mat-card-content>
   </mat-card>

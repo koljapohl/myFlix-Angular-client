@@ -28,10 +28,10 @@ export class LoginFormComponent implements OnInit {
     this.fetchApiData.userLogin(this.userData).subscribe((result) => {
       this.dialogRef.close(); // close dialog on successful login
       console.log(result);
-      this.snackBar.open(`Welcome back ${this.userData.Username}!`, 'Thanks!', { duration: 3000 });
       localStorage.setItem('Username', this.userData.Username);
       localStorage.setItem('token', result.token);
       localStorage.setItem('user', JSON.stringify(result.user));
+      this.snackBar.open(`Welcome back ${this.userData.Username}!`, 'Thanks!', { duration: 3000 });
     }, (result) => {
       console.log(result);
       this.snackBar.open(result, 'Got it!', { duration: 3000 });

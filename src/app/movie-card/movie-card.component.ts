@@ -13,6 +13,8 @@ import { DirectorComponent } from 'src/app/director/director.component';
 })
 export class MovieCardComponent implements OnInit {
   movies: any[] = [];
+  user: any = '';
+  favMovies: any[] = [];
 
   constructor (
     public fetchApiData: FetchApiDataService,
@@ -21,6 +23,7 @@ export class MovieCardComponent implements OnInit {
 
   ngOnInit (): void {
     this.getMovies();
+    this.getUser();
   }
 
   getMovies (): void {
@@ -29,6 +32,19 @@ export class MovieCardComponent implements OnInit {
       console.log(this.movies);
       return this.movies;
     });
+  }
+  getUser (): void {
+    this.fetchApiData.getUser().subscribe((resp: any) => {
+      this.user = resp;
+      console.log(this.user);
+      this.favMovies = this.user.FavoriteMovies;
+      console.log(this.favMovies);
+      return this.favMovies;
+    });
+  }
+
+  isFav (mId: string): boolean {
+    return this.favMovies.includes(mId);
   }
 
   openSynopsis (synopsis: string): void {
