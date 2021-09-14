@@ -12,6 +12,10 @@ To open the application in a new tab in the browser directly, run `ng serve --op
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
+## Deploy to gh-pages
+
+Run `ng deploy --base-href=/myFlix-Angular-client/`
+
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.

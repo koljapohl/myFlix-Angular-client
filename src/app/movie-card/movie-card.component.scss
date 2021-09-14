@@ -1,21 +1,27 @@
 @import '../../styles.scss';
 
+.container {
+  margin: 0 $container-spacing;
+
 .main {
-  margin: $container-spacing+64px $container-spacing $container-spacing $container-spacing;
+  margin: $container-spacing+64px auto $container-spacing auto;
   display: grid;
   grid-auto-flow: row;
   align-content: center;
   justify-items: center;
   gap: 3vw;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  max-width: 1400px;
 }
 
 .movie-card {
-  flex: 1 1 auto;
   background-color: white;
   border-radius: 10px;
-  padding: 2vw;
+  padding: 4vw;
 
+  ::ng-deep .mat-card-header-text {
+    margin: 0;
+  }
   .subtitle, .title {
     white-space: nowrap;
     color: $main-font-color;
@@ -27,9 +33,10 @@
     font-size: $font-subheader;
   }
   img {
-    height: 450px;
-    width: 350px;
+    height: 350px;
+    width: 250px;
     object-fit: cover;
+    margin: 0 auto;
   }
   .mat-card-actions{
     display: grid;
@@ -46,4 +53,5 @@
     color: $main-font-color;
     font-size: $font-subheader;
   }
+}
 }
