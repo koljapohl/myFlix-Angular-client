@@ -118,7 +118,6 @@ export class FetchApiDataService {
 
   //edit user's credentials
   editUser (userDetails: any): Observable<any> {
-    console.log(userDetails);
       return this.http.put(apiUrl + `users/${username}`, userDetails, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
@@ -133,7 +132,8 @@ export class FetchApiDataService {
     return this.http.delete(apiUrl + `users/${username}`, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
-      })
+      }),
+      responseType: 'text'
     }).pipe(
       map(this.extractResponseData),
       catchError(this.handleError));
