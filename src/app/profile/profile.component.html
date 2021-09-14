@@ -18,7 +18,9 @@
           {{user.Email | lowercase}}
         </div>
       </div>
-      <div class="credential-row">
+      <div *ngIf="checkBirthday()"
+      class="credential-row"
+      >
         <div class="key">
           Birthday:
         </div>
@@ -30,6 +32,7 @@
         <button
         mat-raised-button
         color="primary"
+        (click)="openChange()"
         >
         Change credentials
         </button>

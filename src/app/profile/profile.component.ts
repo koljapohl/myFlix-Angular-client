@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { FetchApiDataService } from 'src/app/fetch-api-data.service';
 import { ProfileDeleteComponent } from 'src/app/profile-delete/profile-delete.component';
+import { ProfileCredentialsComponent } from 'src/app/profile-credentials/profile-credentials.component';
 
 @Component({
   selector: 'app-profile',
@@ -11,8 +12,6 @@ import { ProfileDeleteComponent } from 'src/app/profile-delete/profile-delete.co
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-
-  @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
 
   user: any = {};
   movies: any[] = [];
@@ -30,22 +29,24 @@ export class ProfileComponent implements OnInit {
       this.user = resp;
       console.log(this.user);
       this.getMovies();
+      this.checkBirthday();
     });
   }
 
   getMovies (): void {
     this.fetchApiData.getAllMovies().subscribe((resp) => {
       this.movies = resp;
-      console.log(this.movies);
       this.getFavMovies();
     })
   }
 
   getFavMovies (): void {
     this.favIds = this.user.FavoriteMovies;
-    console.log(this.favIds);
     this.favMovies = this.movies.filter(movie => this.favIds.includes(movie._id));
-    console.log(this.favMovies);
+  }
+
+  checkBirthday (): boolean {
+    return this.user.Birthday
   }
 
   ngOnInit (): void {
@@ -65,6 +66,9 @@ export class ProfileComponent implements OnInit {
 
   openDelete (): void {
     this.dialog.open(ProfileDeleteComponent, { width: '50vw' });
+  }
+  openChange (): void {
+    this.dialog.open(ProfileCredentialsComponent, { width: '280px' });
   }
 
   private getMovieTitle (mId: string): string {

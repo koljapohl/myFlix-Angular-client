@@ -7,7 +7,6 @@
     margin: $container-spacing+64px auto $container-spacing auto;
     display: grid;
     grid-auto-flow: row;
-    align-content: center;
     justify-items: center;
     max-width: 1400px;
 
@@ -43,6 +42,7 @@
     color: $primary-color;
     font-weight: 900;
     margin: $container-spacing 0;
+    letter-spacing: 0.3rem;
   }
 
   .fav-container {
@@ -50,9 +50,10 @@
     grid-auto-flow: row;
     align-content: center;
     justify-items: center;
+    padding-bottom: $container-spacing;
     gap: 3vw;
-    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-    max-width: 1400px;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    max-width: 90vw;
 
   .movie-card {
     background-color: white;
