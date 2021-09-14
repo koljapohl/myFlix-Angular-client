@@ -1,6 +1,6 @@
 @import '../../styles.scss';
 
-::ng-deep app-synopsis {
+.container {
   display: grid;
   font-size: $font-main;
 }
