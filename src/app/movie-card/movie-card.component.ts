@@ -24,23 +24,24 @@ export class MovieCardComponent implements OnInit {
   ) { }
 
   ngOnInit (): void {
-    this.getMovies();
-    this.getUser();
+    if (localStorage["token"]) {
+      this.getUser();
+    } else {
+      window.location.reload();
+    }
   }
 
   getMovies (): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
-      console.log(this.movies);
       return this.movies;
     });
   }
   getUser (): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.user = resp;
-      console.log(this.user);
       this.favMovies = this.user.FavoriteMovies;
-      console.log(this.favMovies);
+      this.getMovies();
       return this.favMovies;
     });
   }

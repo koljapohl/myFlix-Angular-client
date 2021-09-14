@@ -52,6 +52,12 @@ export class ProfileComponent implements OnInit {
   ngOnInit (): void {
     this.getUser();
   }
+  ngOnDestroy (): void {
+    this.user = {};
+    this.movies = [];
+    this.favIds = [];
+    this.favMovies = [];
+  }
 
   unfavMovie (mId: string): void {
     this.fetchApiData.delMovieFromFav(mId).subscribe(() => {

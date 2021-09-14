@@ -33,9 +33,9 @@ export class LoginFormComponent implements OnInit {
       localStorage.setItem('user', JSON.stringify(result.user));
       this.snackBar.open(`Welcome back ${this.userData.Username}`, undefined,  { duration: 3000 });
       this.router.navigate(['movies']);
-    }, (result) => {
-      console.log(result);
-      this.snackBar.open(`This combination of Username and Password does not exist. Please try again or sign up.`, 'Got it!', { duration: 3000 });
+    }, (error) => {
+      console.log(error);
+      this.snackBar.open(`This combination of Username and Password does not exist. Please try again or sign up.`, undefined, { duration: 3000 });
     });
   }
 
