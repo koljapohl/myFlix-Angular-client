@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from 'src/app/fetch-api-data.service';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { SynopsisComponent } from 'src/app/synopsis/synopsis.component';
 import { GenreComponent } from 'src/app/genre/genre.component';
@@ -18,7 +19,8 @@ export class MovieCardComponent implements OnInit {
 
   constructor (
     public fetchApiData: FetchApiDataService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public snackBar: MatSnackBar
   ) { }
 
   ngOnInit (): void {
@@ -45,6 +47,25 @@ export class MovieCardComponent implements OnInit {
 
   isFav (mId: string): boolean {
     return this.favMovies.includes(mId);
+  }
+
+  toggleFavMovie (mId: string): void {
+    this.isFav(mId) ?
+      this.fetchApiData.delMovieFromFav(mId).subscribe(() => {
+        const mTitle = this.getMovieTitle(mId);
+        this.favMovies.splice(this.favMovies.indexOf(mId), 1);
+        this.snackBar.open(`${mTitle} was removed from your list of favorites`, undefined, { duration: 3000 });
+      }) :
+      this.fetchApiData.addMovieToFav(mId).subscribe(() => {
+        const mTitle = this.getMovieTitle(mId);
+        this.favMovies.push(mId);
+        this.snackBar.open(`${mTitle} was added to your favorite's list`, undefined, { duration: 3000 });
+      });
+  }
+
+  private getMovieTitle (mId: string): string {
+    const element = this.movies.filter(el => el._id === mId);
+    return element[0]?.Title;
   }
 
   openSynopsis (synopsis: string): void {

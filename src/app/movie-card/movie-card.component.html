@@ -35,16 +35,20 @@
       <button
       mat-button
       class="button-action"
+      aria-details="remove this movie from your favorite's list"
+      (click)="toggleFavMovie(movie._id)"
       >
-        <mat-icon class="icon_isFav" aria-hidden="true" color="#79B52B">favorite</mat-icon>
+        <mat-icon class="icon_isFav" aria-hidden="true" color="accent">favorite</mat-icon>
       </button>
     </ng-template>
     <ng-template #noFavMovie>
     <button
     mat-button
     class="button-action"
+    aria-details="add this movie to your favorite's list"
+    (click)="toggleFavMovie(movie._id)"
     >
-    <mat-icon aria-hidden="true" color="#79B52B">favorite_border</mat-icon>
+      <mat-icon aria-hidden="true" color="accent">favorite_border</mat-icon>
     </button>
   </ng-template>
   </mat-card-actions>

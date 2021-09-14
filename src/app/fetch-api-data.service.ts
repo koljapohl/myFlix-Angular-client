@@ -15,7 +15,7 @@ const username = localStorage.getItem('Username');
 })
 export class FetchApiDataService {
 //injecting the HttpClient module to the constructor params
-  // will provide HttpClient to the entire class, making it available via this.http
+// will provide HttpClient to the entire class, making it available via this.http
   constructor (private http: HttpClient) { }
 
   //User registration (public service)
@@ -71,7 +71,7 @@ export class FetchApiDataService {
 
   //get a genre by title
   getGenre (title: string): Observable<any> {
-    return this.http.get(apiUrl + `/movies/genres/${title}`, {
+    return this.http.get(apiUrl + `movies/genres/${title}`, {
       headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         })
@@ -95,21 +95,22 @@ export class FetchApiDataService {
 
   //add a movie to user's favorites
   addMovieToFav (mId: string): Observable<any> {
-    return this.http.post(apiUrl + `/users/${username}/movies/${mId}`, {
+    return this.http.post(apiUrl + `users/${username}/movies/${mId}`, {}, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
-      })
-    }).pipe(
-      map(this.extractResponseData),
+      }),
+      responseType: 'text'
+    }).pipe(map(this.extractResponseData),
       catchError(this.handleError));
   }
 
   //delete a movie from user's favorites
   delMovieFromFav (mId: string): Observable<any> {
-    return this.http.delete(apiUrl + `/users/${username}/movies/${mId}`, {
+    return this.http.delete(apiUrl + `users/${username}/movies/${mId}`, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
-      })
+      }),
+      responseType: 'text'
     }).pipe(
       map(this.extractResponseData),
       catchError(this.handleError));
@@ -118,7 +119,7 @@ export class FetchApiDataService {
   //edit user's credentials
   editUser (userDetails: any): Observable<any> {
     console.log(userDetails);
-      return this.http.put(apiUrl + `/users/${username}`, userDetails, {
+      return this.http.put(apiUrl + `users/${username}`, userDetails, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         })
@@ -129,7 +130,7 @@ export class FetchApiDataService {
 
   //delete a user's account
   delUser (): Observable<any> {
-    return this.http.delete(apiUrl + `/users/${username}`, {
+    return this.http.delete(apiUrl + `users/${username}`, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
       })
@@ -148,6 +149,7 @@ export class FetchApiDataService {
     if (error.error instanceof ErrorEvent) {
       console.error('Some error occurred: ' + error.error.message);
     } else {
+      console.log(error.error);
       console.error(
         `Error status code ${error.status}, ` +
         `Error body is: ${error.error}`);
