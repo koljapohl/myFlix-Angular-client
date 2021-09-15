@@ -1,0 +1,30 @@
+@import '../../styles.scss';
+
+.nav-bar {
+  position: fixed;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: left;
+  align-items: center;
+  grid-template-columns: auto 1fr;
+  margin-bottom: $container-spacing;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: #861098;
+  color: #fff;
+  height: 64px;
+
+  .nav-item {
+    font-size: $font-header;
+    justify-self: left;
+  }
+  .nav-actions {
+    justify-self: right;
+    padding: 0;
+
+  .nav-button {
+    font-size: $font-subheader;
+  }
+}
+}

@@ -1,0 +1,58 @@
+<app-navbar></app-navbar>
+<div class="container">
+<div class="main">
+  <mat-card *ngFor='let movie of movies;' class="movie-card">
+    <mat-card-header>
+    <mat-card-title class="title">{{movie.Title}}</mat-card-title>
+    <mat-card-subtitle class="subtitle">Directed by: {{ movie.Director.Name}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+  <img src={{movie.ImagePath}} alt={{movie.Title}}>
+  <mat-card-actions>
+    <button
+    mat-button
+    class="button-action"
+    (click)="openSynopsis(movie.Description)"
+    >
+    Synopsis
+    </button>
+    <button
+    mat-button
+    class="button-action"
+    (click)="openGenre(movie.Genre.Title, movie.Genre.Description)"
+    >
+    Genre
+    </button>
+    <button
+    mat-button
+    class="button-action"
+    (click)="openDirector(movie.Director.Name, movie.Director.Bio, movie.Director.BirthYear)"
+    >
+    Director
+    </button>
+    <div *ngIf="isFav(movie._id); then favMovie else noFavMovie"></div>
+    <ng-template #favMovie>
+      <button
+      mat-button
+      class="button-action"
+      aria-details="remove this movie from your favorite's list"
+      (click)="toggleFavMovie(movie._id)"
+      >
+        <mat-icon class="icon_isFav" aria-hidden="true" color="accent">favorite</mat-icon>
+      </button>
+    </ng-template>
+    <ng-template #noFavMovie>
+    <button
+    mat-button
+    class="button-action"
+    aria-details="add this movie to your favorite's list"
+    (click)="toggleFavMovie(movie._id)"
+    >
+      <mat-icon aria-hidden="true" color="accent">favorite_border</mat-icon>
+    </button>
+  </ng-template>
+  </mat-card-actions>
+</mat-card-content>
+  </mat-card>
+</div>
+</div>

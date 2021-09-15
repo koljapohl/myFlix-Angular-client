@@ -1,0 +1,16 @@
+@import '../../styles.scss';
+@import '../genre/genre.component.scss';
+
+mat-dialog-content {
+  display: grid;
+  grid-auto-flow: row;
+
+  .content-row {
+    display: grid;
+    grid-gap: 3vw;
+    grid-template-columns: 1fr 8fr;
+    &:not(:last-of-type) {
+      margin-bottom: 1rem;
+    }
+  }
+}

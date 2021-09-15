@@ -1,0 +1,33 @@
+<nav
+class="nav-bar"
+color="primary">
+  <button
+  mat-button
+  class="nav-item"
+  (click)="routeToMovies()"
+  >
+  myFlix
+  </button>
+  <ul class="nav-actions">
+    <a
+    mat-button
+    routerLinkActive="active"
+    class="nav-button"
+    routerLink="/movies">
+      Movies
+  </a>
+    <a
+    mat-button
+    routerLinkActive="active"
+    class="nav-button"
+    routerLink="/profile">
+      Profile
+</a>
+    <a
+    mat-button
+    class="nav-button"
+    (click)="signOut()">
+      Sign Out
+</a>
+  </ul>
+</nav>

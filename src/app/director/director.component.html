@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="bar">
+    <h2 class="header">
+      {{data.name}}
+    </h2>
+    <button
+    mat-dialog-close
+    class="dialog-close"
+    >
+    <mat-icon aria-hidden="false" aria-details="close the dialog">close</mat-icon>
+  </button>
+</div>
+<mat-dialog-content>
+  <div class="content-row">
+    <div class="key">
+      Bio:
+    </div>
+    <div class="value">
+      {{data.bio}}
+    </div>
+</div>
+<div class="content-row">
+  <div class="key">
+    Birthday:
+  </div>
+  <div class="value">
+    {{data.birth | date: 'longDate'}}
+  </div>
+</div>
+</mat-dialog-content>
+</div>
