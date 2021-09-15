@@ -10,8 +10,15 @@ import { FetchApiDataService } from 'src/app/fetch-api-data.service';
   styleUrls: ['./profile-credentials.component.scss']
 })
 export class ProfileCredentialsComponent implements OnInit {
+
+  /**
+   * Input of profile credentials component
+   */
   @Input() newUserData = { Username: '', Password1: '', Password2: '', Email: '', Birthday: '' };
 
+  /**
+   * Old pw variable used to pass in case pw is not being changed by user (the API expects a pw being passed)
+   */
   oldPw: string = '';
 
   constructor (
@@ -29,9 +36,17 @@ export class ProfileCredentialsComponent implements OnInit {
     })
   }
 
+  /**
+   * check for equality of new pw's typed
+   * @returns true if passwords match
+   */
   pwCheck (): boolean {
     return !(this.newUserData.Password1 === this.newUserData.Password2);
   }
+
+  /**
+   * updates user credentials and reloads the page in order to display the new credentials
+   */
   onUpdate (): void {
     this.fetchApiData.editUser({
       Username: this.newUserData.Username,

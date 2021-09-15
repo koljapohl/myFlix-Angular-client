@@ -24,6 +24,10 @@ export class ProfileComponent implements OnInit {
     public dialog: MatDialog
   ) { }
 
+  ngOnInit (): void {
+    this.getUser();
+  }
+
   getUser (): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.user = resp;
@@ -40,18 +44,22 @@ export class ProfileComponent implements OnInit {
     })
   }
 
+  /**
+   * Stores the user's favorite movies in the class' favMovies variable
+   * @returns Array of user's favorite movie objects
+   */
   getFavMovies (): void {
     this.favIds = this.user.FavoriteMovies;
     this.favMovies = this.movies.filter(movie => this.favIds.includes(movie._id));
   }
 
+  /**
+   * Checks if user has set a birthday
+   */
   checkBirthday (): boolean {
     return this.user.Birthday
   }
 
-  ngOnInit (): void {
-    this.getUser();
-  }
   ngOnDestroy (): void {
     this.user = {};
     this.movies = [];
@@ -59,6 +67,10 @@ export class ProfileComponent implements OnInit {
     this.favMovies = [];
   }
 
+  /**
+   * Removes a movie from the user's favorite's list
+   * @param mId
+   */
   unfavMovie (mId: string): void {
     this.fetchApiData.delMovieFromFav(mId).subscribe(() => {
       const mTitle = this.getMovieTitle(mId);

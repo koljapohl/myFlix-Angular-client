@@ -11,9 +11,18 @@ import { FetchApiDataService } from 'src/app/fetch-api-data.service';
   styleUrls: ['./user-registration-form.component.scss']
 })
 export class UserRegistrationFormComponent implements OnInit {
+/**
+ * Inputs of user registration form component
+ */
+@Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
 
-  @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
-
+  /**
+   * Creates an instance of user registration form component.
+   * @param fetchApiData
+   * @param dialogRef
+   * @param snackBar
+   * @param router
+   */
   constructor (
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserRegistrationFormComponent>,
@@ -24,7 +33,11 @@ export class UserRegistrationFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // sending form inputs to the backend
+  /**
+   * sends API register request
+   * on success:
+   * - login the newly registered user
+   */
   registerUser (): void {
     this.fetchApiData.userRegistration(this.userData).subscribe((result) => {
       this.dialogRef.close(); // closes the modal on success

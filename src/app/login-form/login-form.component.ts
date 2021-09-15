@@ -20,7 +20,7 @@ export class LoginFormComponent implements OnInit {
   /**
    * Creates an instance of login form component by dependency injection
    * @param fetchApiData
-   * @param dialogRef | reference to the dialog opened by [[welcome]]
+   * @param dialogRef reference to the dialog opened by welcome component
    * @param snackBar
    * @param router
    */
@@ -33,7 +33,6 @@ export class LoginFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // sending form inputs to the backend
   /**
    * sends API login request
    * on success:

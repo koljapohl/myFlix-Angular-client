@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
+
 export class NavbarComponent implements OnInit {
 
   constructor(public router: Router) { }
@@ -16,9 +17,14 @@ export class NavbarComponent implements OnInit {
   routeToMovies (): void {
     this.router.navigate(['movies']);
   }
-  routeToProfile (): void {
-    this.router.navigate(['profile']);
-  }
+
+  /**
+   * Signs out current user
+   * Therefore:
+   *  - clear localStorage
+   *  - route to welcome page
+   */
+
   signOut (): void {
     localStorage.clear();
     this.router.navigate(['welcome']);

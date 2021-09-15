@@ -28,7 +28,9 @@ import { DirectorComponent } from './director/director.component';
 import { ProfileDeleteComponent } from './profile-delete/profile-delete.component';
 import { ProfileCredentialsComponent } from './profile-credentials/profile-credentials.component';
 
-
+/**
+ * definition of available routes
+*/
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },

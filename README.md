@@ -34,45 +34,32 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Project description
 
-This project's objective is to build a chat app for mobile devices using React Native. The app will
-provide users with a chat interface and options to share images and their location.
+This project's objective is to build the client-side for an application called myFlix based on its existing server-side code (REST API and database), with supporting documentation.
 
 ## Key features
 
-● A page where users can enter their name and choose a background color for the chat screen before joining the chat.
-● A page displaying the conversation, as well as an input field and submit button.
-● The chat must provide users with two additional communication features: sending images and location data.
-● Data gets stored online and offline.
++ display a welcome view where users will be able to either log in or register an account
++ Once authenticated, the user should now view all movies
++ Upon clicking on a particular movie, users will be taken to a single movie view, where additional movie details will be displayed. The single movie view will contain the following additional features
++ A button that when clicked takes a user to the ​director view​, where details about the director of that particular movie will be displayed
++ A button that when clicked takes a user to the ​genre view​, where details about that particular genre of the movie will be displayed
 
 ## Dependencies
 
-+ React
-+ ReactDOM
-+ React-Scripts
-+ React-Native
-+ React-Navigation
-+ React-native-gifted-chat
-+ React-native-asyncStorage
-+ Firebase
-+ Expo
-+ Expo-image-picker
-+ Expo-location
++ Angular Material
++ TypeDoc
++ rxjs
 
 ## Tools used
 
-+ AngularJS
-
-+ Expo
-+ Firebase Authentication (anonymously)
-+ Firestore DB
-+ Firebase Storage
-+ Android Studio
++ Angular
++ GitHub Pages
 
 ## getting started
 
 Requirements:
 
-+ Node.js
++ Node.js and npm package
 + Angular CLI
 
 `npm install -g @angular/cli`
@@ -86,9 +73,7 @@ Requirements:
 
 + within root folder start of dev server by
 
-`npm run start` OR `expo start`
-
-+ run chatApp with an emulator/simulator of your choice or via the ExpoGo application on your physical device
+`npm run start` OR `ng serve`
 
 ## TypeDoc
 

@@ -17,6 +17,12 @@ export class MovieCardComponent implements OnInit {
   user: any = '';
   favMovies: any[] = [];
 
+  /**
+   * Creates an instance of movie card component.
+   * @param fetchApiData
+   * @param dialog
+   * @param snackBar
+   */
   constructor (
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
@@ -31,12 +37,19 @@ export class MovieCardComponent implements OnInit {
     }
   }
 
+  /**
+   * Fetches movies and stores them in class variable movies
+   */
   getMovies (): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
       return this.movies;
     });
   }
+
+  /**
+   * Gets user, stores it in class variable and invokes [[getMovies]]
+   */
   getUser (): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.user = resp;
@@ -46,10 +59,19 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+   * Determines whether a movie is part of the user's favorites
+   * @param mId
+   * @returns true if fav
+   */
   isFav (mId: string): boolean {
     return this.favMovies.includes(mId);
   }
 
+  /**
+   * Toggles movie being a favorite
+   * @param mId
+   */
   toggleFavMovie (mId: string): void {
     this.isFav(mId) ?
       this.fetchApiData.delMovieFromFav(mId).subscribe(() => {
@@ -64,6 +86,11 @@ export class MovieCardComponent implements OnInit {
       });
   }
 
+  /**
+   * Gets a movie's title by it's Id for response messages
+   * @param mId
+   * @returns movie title
+   */
   private getMovieTitle (mId: string): string {
     const element = this.movies.filter(el => el._id === mId);
     return element[0]?.Title;
