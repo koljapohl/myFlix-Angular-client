@@ -1,4 +1,4 @@
-<mat-toolbar
+<nav
 class="nav-bar"
 color="primary">
   <button
@@ -8,24 +8,26 @@ color="primary">
   >
   myFlix
   </button>
-  <div class="nav-actions">
-    <button
+  <ul class="nav-actions">
+    <a
     mat-button
+    routerLinkActive="active"
     class="nav-button"
-    (click)="routeToMovies()">
+    routerLink="/movies">
       Movies
-    </button>
-    <button
+  </a>
+    <a
     mat-button
+    routerLinkActive="active"
     class="nav-button"
-    (click)="routeToProfile()">
+    routerLink="/profile">
       Profile
-    </button>
-    <button
+</a>
+    <a
     mat-button
     class="nav-button"
     (click)="signOut()">
       Sign Out
-    </button>
-  </div>
-</mat-toolbar>
+</a>
+  </ul>
+</nav>
