@@ -12,8 +12,18 @@ import { FetchApiDataService } from 'src/app/fetch-api-data.service';
 })
 export class LoginFormComponent implements OnInit {
 
+  /**
+   * Inputs  of login form component
+   */
   @Input() userData = { Username: '', Password: '' };
 
+  /**
+   * Creates an instance of login form component by dependency injection
+   * @param fetchApiData
+   * @param dialogRef | reference to the dialog opened by [[welcome]]
+   * @param snackBar
+   * @param router
+   */
   constructor (
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<LoginFormComponent>,
@@ -24,6 +34,12 @@ export class LoginFormComponent implements OnInit {
   }
 
   // sending form inputs to the backend
+  /**
+   * sends API login request
+   * on success:
+   * - save username, user, token to localStorage
+   * - redirect to /movies route
+   */
   loginUser (): void {
     this.fetchApiData.userLogin(this.userData).subscribe((result) => {
       this.dialogRef.close(); // close dialog on successful login

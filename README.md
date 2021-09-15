@@ -68,8 +68,6 @@ provide users with a chat interface and options to share images and their locati
 + Firebase Storage
 + Android Studio
 
-## API
-
 ## getting started
 
 Requirements:
@@ -91,3 +89,9 @@ Requirements:
 `npm run start` OR `expo start`
 
 + run chatApp with an emulator/simulator of your choice or via the ExpoGo application on your physical device
+
+## TypeDoc
+
+generate documentation by running
+
+`npm run doc`
